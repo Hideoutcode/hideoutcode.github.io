@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#input").addEventListener("keydown", function(e) {
     if (e.code === "Enter") {
+        // i will be adding functionality here.
         console.log("You pressed the enter button!")
     }
   });
