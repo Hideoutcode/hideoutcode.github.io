@@ -1,10 +1,14 @@
-const string1 = [`1`, `2`, `3`];
-const string2 = [`4`, `5`, `6`]; 
-const string3 = string1.concat(string2);
+const minecraftblocks = [`stone`, `deepslate`, `diamond`, `gold`, `iron`, `spruce`, `birch`, `oak`, `acacia`, `jungle`, `glass`, `bed`, `crafting table`, `anvil`, `barrel`, `chest`]
+const elements = [`plasma`, `fire`, `earth`, `water`, `gas`, `liquid`, `solid`]
+const dinners = [`steak`, `pork`, `rice`, `chicken`, `brocolli`, `apple`, `noodles`, `spaghetti`];
+const sweetfoods = [`pumpkin pie`, `ice cream`, `cake`, `baguette`, `brownie`, `cinnamon roll`, `minecraft cake`, `chocolate cake`, `vanilla cake`, `ice cream cake`,];
+var randomarray = [minecraftblocks, elements, dinners, sweetfoods]; 
 
-Document.write(string3)
+var arrayIndex = 1
+alert(randomarray[arrayIndex])
 
-
-
-var lastElement = myList[MyList.lenght - 1]; 
-console.log(lastElement); 
+// alert(randomarray) *alert whole array*
+// alert(randomarray[1]) *alert minecraft blocks array*
+// alert(randomarray[2]) *alert elements array*
+// alert(randomarray[3]) *alert dinners array*
+// alert(randomarray[4]) *alert sweetfoods array*
