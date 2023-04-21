@@ -14,21 +14,8 @@
   <h5> Beta-bulid : .01.19</h5>
   <div class='chatbox' ng-controller="MessageCtrl as chatMessage">
     <div class='chatbox__user-list'>
-      <h1>User list</h1>
-      <div class='chatbox__user--active'>
-      </div>
-      <div class='chatbox__user--busy'>
-     
-      </div>
-      <div class='chatbox__user--active'>
-      
-      </div>
-      <div class='chatbox__user--active'>
-       
-      </div>
-      <div class='chatbox__user--away'>
-       
-      </div>
+     <button type="button" onclick="alert('Your Message has been sent')">Send Message!</button>
+ 
     </div>
     <div class="chatbox__messages" ng-repeat="message in messages">
       <div class="chatbox__messages__user-message">
@@ -46,7 +33,7 @@
       <input type="text" placeholder="Enter your message">
     </form>
   </div>
- <script src="main.js"></script>
+ <script src="script.js"></script>
 
 </body>
 </html>
