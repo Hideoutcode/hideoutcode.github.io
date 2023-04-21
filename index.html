@@ -33,9 +33,9 @@
     <div class="chatbox__messages" ng-repeat="message in messages">
       <div class="chatbox__messages__user-message">
         <div class="chatbox__messages__user-message--ind-message">
-          <p class="name">{{Welcome to the bakeryAI}}</p>
+          <p class="name">{{message.ai}}</p>
           <br/>
-          <p class="message">{{Hello User}}</p>
+          <p class="message">{{message.type}}</p>
         </div>
       </div>
     </div>
@@ -46,7 +46,7 @@
       <input type="text" placeholder="Enter your message">
     </form>
   </div>
- <script src="beta.js"></script>
+ <script src="main.js"></script>
 
 </body>
 </html>
