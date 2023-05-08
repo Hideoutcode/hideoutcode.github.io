@@ -4,7 +4,7 @@ const dinners = [`steak`, `pork`, `rice`, `chicken`, `brocolli`, `apple`, `noodl
 const sweetfoods = [`pumpkin pie`, `ice cream`, `cake`, `baguette`, `brownie`, `cinnamon roll`, `minecraft cake`, `chocolate cake`, `vanilla cake`, `ice cream cake`,];
 var randomarray = [minecraftblocks, elements, dinners, sweetfoods]; 
 
-var arrayIndex = 1
+var arrayIndex = 2
 alert(randomarray[arrayIndex])
 
 // alert(randomarray) *alert whole array*
