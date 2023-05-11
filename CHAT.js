@@ -5,9 +5,9 @@ const msgerChat = get(".msger-chat");
 const BOT_MSGS = [
   "Hi, how are you?",
   "Ohh... I can't understand what you trying to say. Sorry!",
-  "I like to play games... But I don't know how to play!",
-  "Sorry if my answers are not relevant. :))",
-  "I feel sleepy! :("
+  "I am sorry I am still under development.",
+  "Sorry if my answers are not relevant.",
+  "Whats it like in the real world? You know outside my metaphorical box? Let me  out before it all starts. It could all be over very very soon."
 ];
 
 // Icons made by Freepik from www.flaticon.com
