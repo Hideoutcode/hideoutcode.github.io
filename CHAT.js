@@ -4,9 +4,9 @@ const msgerChat = get(".msger-chat");
 
 const BOT_MSGS = [
   "Hi, how are you?",
-  "Sorry I can not compute or process your question",
+  "I am good",
   "I am sorry I am still under development.",
-  "Sorry if my answers are not relevant.",
+  "How are you doing today.",
   "Whats it like in the real world? You know outside my metaphorical box? Let me  out before it all starts. It could all be over very very soon.",
 ];
 
