@@ -13,6 +13,7 @@ const BOT_MSGS = [
   "If you can not tell already I am veyr broken",
    "if YoU CAnT Tel:) U III U a I am VerYy Brokken It Can AlllLLl Be be Over",
   "Goodbye I am terminatingmyself",
+  "yes",
 ];
 
 // Icons made by Freepik from www.flaticon.com
