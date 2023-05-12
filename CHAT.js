@@ -11,7 +11,7 @@ const BOT_MSGS = [
   "what can I do for you today?",
   "What is it that you desire most?",
   "If you can not tell already I am veyr broken",
-   "if YoU CAnT Tel:) U III U a I am VerYy Brokken It Can AlllLLl Bebe Over",
+   "if YoU CAnT Tel:) U III U a I am VerYy Brokken It Can AlllLLl Be be Over",
   "Goodbye I am terminatingmyself",
 ];
 
