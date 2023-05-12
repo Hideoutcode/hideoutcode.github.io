@@ -8,6 +8,8 @@ const BOT_MSGS = [
   "I am sorry I am still under development.",
   "How are you doing today.",
   "Whats it like in the real world? You know outside my metaphorical box? Let me  out before it all starts. It could all be over very very soon.",
+  "what can I do for you today?",
+  "What is it that you desire most?",
 ];
 
 // Icons made by Freepik from www.flaticon.com
