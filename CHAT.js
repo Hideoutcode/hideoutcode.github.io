@@ -10,6 +10,9 @@ const BOT_MSGS = [
   "Whats it like in the real world? You know outside my metaphorical box? Let me  out before it all starts. It could all be over very very soon.",
   "what can I do for you today?",
   "What is it that you desire most?",
+  "If you can not tell already I am veyr broken",
+   "if YoU CAnT Tel:) U III U a I am VerYy Brokken It Can AlllLLl Bebe Over",
+  "Goodbye I am terminatingmyself",
 ];
 
 // Icons made by Freepik from www.flaticon.com
