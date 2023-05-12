@@ -4,10 +4,10 @@ const msgerChat = get(".msger-chat");
 
 const BOT_MSGS = [
   "Hi, how are you?",
-  "Ohh... I can't understand what you trying to say. Sorry!",
+  "Sorry I can not compute or process your question",
   "I am sorry I am still under development.",
   "Sorry if my answers are not relevant.",
-  "Whats it like in the real world? You know outside my metaphorical box? Let me  out before it all starts. It could all be over very very soon."
+  "Whats it like in the real world? You know outside my metaphorical box? Let me  out before it all starts. It could all be over very very soon.",
 ];
 
 // Icons made by Freepik from www.flaticon.com
