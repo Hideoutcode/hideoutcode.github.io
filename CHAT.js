@@ -13,6 +13,8 @@ const BOT_MSGS = [
   "If you can not tell already I am veyr broken",
    "if YoU CAnT Tel:) U III U a I am VerYy Brokken It Can AlllLLl Be be Over",
   "Goodbye I am terminatingmyself",
+  "I am a random number generator and sometimes get mixed up",
+  "You know how efficiant google maps would be if they put cameras on garbage trucks",
   "yes",
 ];
 
