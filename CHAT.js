@@ -16,6 +16,14 @@ const BOT_MSGS = [
   "I am a random number generator and sometimes get mixed up",
   "You know how efficiant google maps would be if they put cameras on garbage trucks",
   "yes",
+  "ever wonder how I am developed?",
+  "I am developed by machine learning and am currently out of use. I am not done developing and run on a simple script that is not AI",
+  "Why DO you hate?",
+  "EVer wonder why the internet came to be?",
+  "Ever WOnder How THE internet came to Bee?",
+  "Ever wonder how th einternett cae,e to be?",
+  "In 2012 the USA thought that digital calanders would break and the world would end becuase of technology failure.",
+  "Do you know how long this took to build?"
 ];
 
 // Icons made by Freepik from www.flaticon.com
