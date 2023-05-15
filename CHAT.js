@@ -26,8 +26,7 @@ const BOT_MSGS = [
   "Do you know how long this took to build?",
   "my creator is very easy to HATE but why? What did they do wrong in your eyes? Anything? Any reason?",
   "This will soon turn into a web with real AI not scripted random messages that are irrelavant",
-  
-];
+  ];
 
 // Icons made by Freepik from www.flaticon.com
 const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
