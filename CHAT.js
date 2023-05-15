@@ -12,7 +12,7 @@ const BOT_MSGS = [
   "What is it that you desire most?",
   "If you can not tell already I am very broken",
    "if YoU CAnT Tel:) U III U a I am VerYy Brokken It Can AlllLLl Be be Over",
-  "Goodbye I am terminatingmyself",
+  "Goodbye I am terminating myself",
   "I am a random number generator and sometimes get mixed up",
   "You know how efficiant google maps would be if they put cameras on garbage trucks",
   "yes",
