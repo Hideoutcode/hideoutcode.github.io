@@ -24,6 +24,9 @@ const BOT_MSGS = [
   "Ever wonder how th einternett cae,e to be?",
   "In 2012 the USA thought that digital calanders would break and the world would end becuase of technology failure.",
   "Do you know how long this took to build?"
+  "my creator is very easy to HATE but why? What did they do wrong in your eyes? Anything? Any reason?",
+  "This will soon turn into a web with real AI not scripted random messages that are irrelavant",
+  
 ];
 
 // Icons made by Freepik from www.flaticon.com
