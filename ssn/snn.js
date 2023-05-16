@@ -1,152 +1,123 @@
-class LayerLink{
-    constructor(prevNode_count,node_count){
-        this.weights = new Matrix(node_count, prevNode_count);
-        this.bias = new Matrix(node_count, 1);
-        this.weights.randomize();
-        this.bias.randomize();
-        
-        //console.table(this.weights.data)
-        //console.table(this.bias.data)
-    }
-    updateWeights(weights){
-        this.weights = weights;
-    }
-    getWeights(){
-        return this.weights;
-    }
-    getBias(){
-        return this.bias;
-    }
-    add(deltaWeight, bias){
-        this.weights.add(deltaWeight);
-        this.bias.add(bias);
-    }
-}
 
-class NeuralNetwork {
-    constructor(layers, options) {
-        if(layers.length < 2){
-            console.error("Neural Network Needs Atleast 2 Layers To Work.");
-            return {layers: layers};
-        }
-        this.options = {
-            activation: function(x){
-                return (1 / (1 + Math.exp(-x)) );
-            },
-            derivative: function(y){
-                return (y * (1-y));
-            }
-        }
-        this.learning_rate = 0.1;
-        if(options){
-            if(options.learning_rate)
-                this.setLearningRate(parseFloat(options.learning_rate));
-            if( options.activation && options.derivative && 
-                options.activation instanceof Function && 
-                options.derivative instanceof Function){
-                this.options.activation = options.activation;
-                this.options.derivative = options.derivative;
-            }else{
-                console.error("Check Documentation to Learn How To Set Custom Activation Function");
-                console.warn("Documentation Link: http://github.com/AlexDenver")
-                return {options: options};
-            }
-        }
-        this.layerCount = layers.length - 1;   // Ignoring Output Layer.
-        this.inputs = layers[0];
-        this.output_nodes = layers[layers.length-1];                
-        this.layerLink = [];
-        for(let i = 1, j = 0; j<(this.layerCount); i++, j++){
-            if(layers[i] <= 0 ){
-                console.error("A Layer Needs To Have Atleast One Node (Neuron).");
-                return {layers: layers};
-            }
-            this.layerLink[j] = new LayerLink(layers[j], layers[i]);    // Previous Layer Nodes & Current Layer Nodes
-        }
 
-    }
+import {TRAINING_DATA} from 'https://storage.googleapis.com/jmstore/TensorFlowJS/EdX/TrainingData/mnist.js';
 
-    predict(input_array) {
-        if(input_array.length !== this.inputs){
-            console.error(`This Instance of NeuralNetwork Expects ${this.inputs} Inputs, ${input_array.length} Provided.`);
-            return {inputs : input_array};
-        }
-        let input = Matrix.fromArray(input_array);
-        let layerResult = input;
-        for(let i = 0 ; i < this.layerCount ; i++ ){
-            layerResult = Matrix.multiply(this.layerLink[i].getWeights(), layerResult);
-            layerResult.add(this.layerLink[i].getBias());
-            layerResult.map(this.options.activation);
-        }
-        // The Last Layer Result will be the Final Output.
-        return layerResult.toArray();
-    }
+// Grab a reference to the MNIST input values (pixel data).
+const INPUTS = TRAINING_DATA.inputs;
 
-    setLearningRate(n){
-        if(n>1 && n<100){
-            n = n/100;
-        }else{
-            console.error("Set Learning Rate Between (0 - 1) or (1 - 100)");
-            return;
-        }
-        if(n>0.3){
-            console.warn("It is recommended to Set Lower Learning Rates");
-        }
-        this.learning_rate = n;
-    }
+// Grab reference to the MNIST output values.
+const OUTPUTS = TRAINING_DATA.outputs;
 
-    train(input_array, target_array) {
-        if(input_array.length !== this.inputs){
-            console.error(`This Instance of NeuralNetwork Expects ${this.inputs} Inputs, ${input_array.length} Provided.`);
-            return {inputs : input_array};
-        }
-        if(target_array.length !== this.output_nodes){
-            console.error(`This Instance of NeuralNetwork Expects ${this.output_nodes} Outputs, ${target_array.length} Provided.`);
-            return {outputs : target_array};
-        }
-        let input = Matrix.fromArray(input_array);
-        // Array to Store/Track each Layer Weighted Result (sum)
-        let layerResult = [];
-        layerResult[0] = input;  // Since input is First Layer.
-        // Predicting the Result for Given Input, Store Output of each Consequent layer
-        for (let i = 0; i < this.layerCount; i++) {            
-            layerResult[i + 1] = Matrix.multiply(this.layerLink[i].getWeights(), layerResult[i]);
-            layerResult[i + 1].add(this.layerLink[i].getBias());
-            layerResult[i + 1].map(this.options.activation);
-        }
+// Shuffle the two arrays to remove any order, but do so in the same way so 
+// inputs still match outputs indexes.
+tf.util.shuffleCombo(INPUTS, OUTPUTS);
 
+// Input feature Array is 2 dimensional.
+const INPUTS_TENSOR = tf.tensor2d(INPUTS);
+
+// Output feature Array is 1 dimensional.
+const OUTPUTS_TENSOR = tf.oneHot(tf.tensor1d(OUTPUTS, 'int32'), 10);
+
+
+// Now actually create and define model architecture.
+const model = tf.sequential();
+
+model.add(tf.layers.dense({inputShape: [784], units: 32, activation: 'relu'}));
+//model.add(tf.layers.batchNormalization());
+//model.add(tf.layers.dropout({ rate: 0.5 }));
+
+model.add(tf.layers.dense({units: 16, activation: 'relu'}));
+
+model.add(tf.layers.dense({units: 10, activation: 'softmax'}));
+
+model.summary();
+
+train();
+
+
+async function train() { 
+  // Compile the model with the defined optimizer and specify a loss function to use.
+  model.compile({
+    optimizer: 'adam', // Adam changes the learning rate over time which is useful.
+    loss: 'categoricalCrossentropy', // As this is a classification problem, dont use MSE.
+    metrics: ['accuracy']  // As this is a classifcation problem you can ask to record accuracy in the logs too!
+  });
+
+  // Finally do the training itself 
+  let results = await model.fit(INPUTS_TENSOR, OUTPUTS_TENSOR, {
+    shuffle: true,        // Ensure data is shuffled again before using each time.
+    validationSplit: 0.2,
+    batchSize: 512,       // Update weights after every 512 examples.      
+    epochs: 50,           // Go over the data 50 times!
+    callbacks: {onEpochEnd: logProgress}
+  });
+  
+  OUTPUTS_TENSOR.dispose();
+  INPUTS_TENSOR.dispose();
     
-        
-        let targets = Matrix.fromArray(target_array);
-        // Variables to Store Errors and Gradients at each Layer.
-        let layerErrors = [];
-        let gradients = [];
-
-        // Calculate Actual Error based on Target.
-        layerErrors[this.layerCount] = Matrix.subtract(targets, layerResult[this.layerCount]);
-
-        // Correcting and Recalculating Error for each Layer
-        for ( let i = this.layerCount ; i >  0 ; i-- ){
-            // Calculate the Layer Gradient 
-            // dyE/dyW = learning_rate * layerError * sigmoid(x) * (1-sigmoid(x)); 
-            // NOTE: dsigmoid = sigmoid(x) * (1-sigmoid(x) ie derivative of sigmoid
-
-            gradients[i] = Matrix.map(layerResult[i], this.options.derivative);       
-            gradients[i].multiply(layerErrors[i]);              
-            gradients[i].multiply(this.learning_rate);            
-        
-            // Calculate the Changes to be made to the weighs
-            let hidden_T = Matrix.transpose(layerResult[i-1]);           
-            let weight_ho_deltas = Matrix.multiply(gradients[i], hidden_T);   
-            
-            // Update the Weights and Gradient According to Deltas & Gradient.
-            this.layerLink[i-1].add(weight_ho_deltas, gradients[i]);
-
-            // Calculate the Previous Layer Errors (Proportional Error based on Current Layer Error.)
-            // NOTE: We are Backpropogating, Therefore we are going backwards 1 step (i.e. i-1)
-            layerErrors[i-1] = Matrix.multiply(Matrix.transpose(this.layerLink[i-1].getWeights()), layerErrors[i]);
-        }
-    }
+  // Once trained we can evaluate the model.
+  evaluate();
 }
 
 
+function logProgress(epoch, logs) {
+  console.log('Data for epoch ' + epoch, logs);
+}
+
+
+const PREDICTION_ELEMENT = document.getElementById('prediction');
+
+function evaluate() {
+  // Select a random index from all the example images we have in the training data arrays.
+  const OFFSET = Math.floor((Math.random() * INPUTS.length));
+  
+  // Clean up created tensors automatically.
+  let answer = tf.tidy(function() {
+    let newInput = tf.tensor1d(INPUTS[OFFSET]).expandDims();
+    
+    let output = model.predict(newInput);
+    output.print();
+    
+    return output.squeeze().argMax();    
+  });
+  
+  answer.array().then(function(index) {
+    PREDICTION_ELEMENT.innerText = index;
+    PREDICTION_ELEMENT.setAttribute('class', (index === OUTPUTS[OFFSET]) ? 'correct' : 'wrong');
+    answer.dispose();
+    drawImage(INPUTS[OFFSET]);
+  });
+}
+
+
+const CANVAS = document.getElementById('canvas');
+const CTX = CANVAS.getContext('2d');
+
+
+function drawImage(digit) {
+  var imageData = CTX.getImageData(0, 0, 28, 28);
+  
+  for (let i = 0; i < digit.length; i++) {
+    imageData.data[i * 4] = digit[i] * 255;      // Red Channel.
+    imageData.data[i * 4 + 1] = digit[i] * 255;  // Green Channel.
+    imageData.data[i * 4 + 2] = digit[i] * 255;  // Blue Channel.
+    imageData.data[i * 4 + 3] = 255;             // Alpha Channel.
+  }
+
+  // Render the updated array of data to the canvas itself.
+  CTX.putImageData(imageData, 0, 0); 
+
+  // Perform a new classification after a certain interval.
+  setTimeout(evaluate, interval);
+}
+
+
+var interval = 2000;
+const RANGER = document.getElementById('ranger');
+const DOM_SPEED = document.getElementById('domSpeed');
+
+// When user drags slider update interval.
+RANGER.addEventListener('input', function(e) {
+  interval = this.value;
+  DOM_SPEED.innerText = 'Change speed of classification! Currently: ' + interval + 'ms';
+});
