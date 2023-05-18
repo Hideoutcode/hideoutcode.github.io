@@ -112,7 +112,7 @@ function drawImage(digit) {
 }
 
 
-var interval = 2000;
+var interval = 100000;
 const RANGER = document.getElementById('ranger');
 const DOM_SPEED = document.getElementById('domSpeed');
 
