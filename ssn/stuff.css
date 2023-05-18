@@ -7,7 +7,7 @@ body {
 
 h1 {
   font-style: italic;
-  color: #FF6F00;
+  color: #352f44;
 }
 
 canvas {
@@ -29,7 +29,7 @@ p#prediction {
 }
 
 p#prediction.correct {
-  border: 3px solid #00ff00;
+  border: 3px solid lime;
   color: #00ff00;
   font-size: 100pt;
 }
