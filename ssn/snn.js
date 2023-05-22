@@ -1,6 +1,6 @@
 
 
-import {TRAINING_DATA} from 'https://storage.googleapis.com/jmstore/TensorFlowJS/EdX/TrainingData/mnist.js';
+import {TRAINING_DATA} from "https://storage.googleapis.com/jmstore/TensorFlowJS/EdX/TrainingData/mnist.js";
 
 // Grab a reference to the MNIST input values (pixel data).
 const INPUTS = TRAINING_DATA.inputs;
