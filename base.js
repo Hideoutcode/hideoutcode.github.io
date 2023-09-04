@@ -29,9 +29,11 @@ const BOT_MSGS = [
   "help me",
   "this is js>",
   "I am bored.",
+  "error no no secure internet found. Please connect to Ethernet instead.",
+  
   ];
 
-// Icons made by Freepik from www.flaticon.com
+// Icons made by me from unknown.org
 const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
 const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
 const BOT_NAME = "HideoutBot";
