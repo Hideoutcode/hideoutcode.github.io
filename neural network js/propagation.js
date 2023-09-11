@@ -1,6 +1,6 @@
 // train the network - learn XOR
 
-var learningRate = .3;
+var learningRate = 3.00;
 
 for (var i = 0; i < 20000; i++) {  
   // 0,0 => 0  
