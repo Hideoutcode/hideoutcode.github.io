@@ -17,8 +17,15 @@ If(var person_name = "user";includes("good", "fine", "a-okay"; const BOT_MSGS = 
   "I am here to help!",
   ]));
 
-if(var Person_name = "user";includes("i need", "I need", "what is", "is this",; const BOT
-  
+if(var Person_name = "user";includes("i need", "I need", "what is", "is this",; const BOT_MSGS = [ 
+ "I can help you if you include key words on the subject, that is how my basic javascript ai works not that you probably care you just need a simple answer for right now I am completely irrelavant",]));
+ 
+
+ const array1 = Array["Math", "math", ];
+
+
+
+
   
   
   
