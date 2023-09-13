@@ -1,10 +1,10 @@
- const msgerForm = get(".msger-inputarea");
-const msgerInput = get(".msger-input");
-const msgerChat = get(".msger-chat");
+ var msgerForm = get(".msger-inputarea");
+var  msgerInput = get(".msger-input");
+var  msgerChat = get(".msger-chat");
 
 
 var Person_Name = "user";
-const BOT_DIR = array["math", "code", "back", "start"];
+var  BOT_DIR = array["math", "code", "back", "start"];
 
 
 if( Person_Name = "user";includes("hi, hello, how are you, hola,  hallo";  BOT_MSGS = [
@@ -25,7 +25,7 @@ if( Person_name = "user";includes("i need", "I need", "what is", "is this",  BOT
  "I can help you if you include key words on the subject such as math search test or joke, that is how my basic javascript ai works not that you probably care you just need a simple answer for right now I am completely irrelavant",]);
  
 
- const array1 = Array["Math", "math","search", "test", "Joke"];
+ var array1 = Array["Math", "math","search", "test", "Joke"];
 
 If( Person_name = "user";includes("math";  BOT_DIR = [
 
@@ -60,16 +60,16 @@ If( Person_name = "user";includes("math";  BOT_DIR = [
 
 
 // Icons made by me from unknown.org
-const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
-const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
-const BOT_NAME = "HideoutBot";
-const PERSON_NAME = "null";
+var  BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
+var  PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
+var  BOT_NAME = "HideoutBot";
+var  PERSON_NAME = "null";
 
 
  msgerForm.addEventListener("submit", event => {
   event.preventDefault();
 
-  const msgText = msgerInput.value;
+  var msgText = msgerInput.value;
   if (!msgText) return;
 
   appendMessage(PERSON_NAME, PERSON_IMG, "right", msgText);
@@ -80,7 +80,7 @@ const PERSON_NAME = "null";
 
 function appendMessage(name, img, side, text) {
   //   Simple solution for small apps
-  const msgHTML = `
+  var msgHTML = `
     <div class="msg ${side}-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>
 
@@ -100,9 +100,9 @@ function appendMessage(name, img, side, text) {
 }
 
 function botResponse() {
-  const r = random(0, BOT_MSGS.length - 1);
-  const msgText = BOT_MSGS[r];
-  const delay = msgText.split(" ").length * 100;
+  var r = random(0, BOT_MSGS.length - 1);
+  var msgText = BOT_MSGS[r];
+  var  delay = msgText.split(" ").length * 100;
 
   setTimeout(() => {
     appendMessage(BOT_NAME, BOT_IMG, "left", msgText);
