@@ -90,7 +90,11 @@ document.getElementById("demo").innerHTML =myFunction());
 
 
 
-
+// Icons made by me from unknown.org
+const BOT_IMG = "https://image.flaticon.com/icons/svg/327/327779.svg";
+const PERSON_IMG = "https://image.flaticon.com/icons/svg/145/145867.svg";
+const BOT_NAME = "HideoutBot";
+const PERSON_NAME = "null";
 
 
  msgerForm.addEventListener("submit", event => {
