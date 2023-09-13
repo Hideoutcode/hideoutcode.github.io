@@ -147,11 +147,7 @@ function formatDate(date) {
   return `${h.slice(-2)}:${m.slice(-2)}`;
 }
 
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min) + min);
-}
 
-  
   
   
   
