@@ -3,7 +3,7 @@ const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
 var Person_Name = "user";
 const BOT_DIR = array["math", "code", "back", "start",];
-const BOT_CALC = javascript: 
+
 
 if(var Person_Name = "user";includes("hi, hello, how are you, hola, привет, hallo,"; const BOT_MSGS = [
   "hi How are You?",
@@ -83,7 +83,6 @@ document.getElementById("demo").innerHTML =myFunction());
 
 
 
-const BOT_MSGS = [
 
 
 
@@ -147,6 +146,9 @@ function formatDate(date) {
   return `${h.slice(-2)}:${m.slice(-2)}`;
 }
 
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+}
 
   
   
