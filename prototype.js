@@ -1,11 +1,13 @@
  const msgerForm = get(".msger-inputarea");
 const msgerInput = get(".msger-input");
 const msgerChat = get(".msger-chat");
+
+
 var Person_Name = "user";
 const BOT_DIR = array["math", "code", "back", "start",];
 
 
-if(var Person_Name = "user";includes("hi, hello, how are you, hola, привет, hallo,"; const BOT_MSGS = [
+if(var Person_Name = "user";includes("hi, hello, how are you, hola,  hallo"; const BOT_MSGS = [
   "hi How are You?",
   "hello",
   "how can I help you?",
