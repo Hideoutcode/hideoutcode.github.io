@@ -7,13 +7,13 @@ var Person_Name = "user";
  var  BOT_DIR =  "Array{ 'math' ;'code' ;'back' };";
 
 
-if( Person_Name = "user"; includes("hi, hello, how are you, hola,  hallo";  BOT_MSGS = [
+if( Person_Name = "user", includes("hi, hello, how are you, hola,  hallo"))  ;BOT_MSGS = [
   "hi How are You?",
   "hello",
   "how can I help you?",
   "Hi",
   "Hi, today is a good day!",
-]});
+];}); 
 
 If( person_name = "user";includes("good", "fine", "a-okay";  BOT_MSGS = [
   "How can I help You?",
