@@ -1,45 +1,36 @@
-var Person_Name = "user";
-var BOT_DIR = ['math', 'code', 'back'];
-
-
 var msgerForm = get(".msger-inputarea");
 var msgerInput = get(".msger-input");
 var msgerChat = get(".msger-chat");
 
+var Person_Name = "user";
+var BOT_DIR = ["math" ,"code" ,"back"];
+var BOT_MSGS = [];
 
-
-if (Person_Name === "user" && includes("hi, hello, how are you, hola, hallo")) {
-	BOT_MSGS = [
-		"hi How are You?",
-		"hello",
-		"how can I help you?",
-		"Hi",
-		"Hi, today is a good day!"
-	];
+if (Person_Name === "user" && includes("hi", "hello", "how are you", "hola",  "hallo")) {
+  BOT_MSGS = [
+    "hi How are You?",
+    "hello",
+    "how can I help you?",
+    "Hi",
+    "Hi, today is a good day!",
+  ];
 }
 
-if (person_name === "user" && includes("good", "fine", "a-okay")) {
-	BOT_MSGS = [
-		"How can I help You?",
-		"Anything I can do for you today",
-		"I am here to help!"
-	];
+if(Person_Name == "user" && includes("good", "fine", "a-okay")) {
+  BOT_MSGS = [
+    "How can I help You?",
+    "Anything I can do for you today",
+    "I am here to help!",
+  ];
+
+  if( Person_Name == "user" && includes("i need", "I need", "what is", "is this")) {
+    BOT_MSGS = ["I can help you if you include key words on the subject such as math search test or joke, that is how my basic javascript ai works not that you probably care you just need a simple answer for right now I am completely irrelavant"];
+      var array1 = Array["Math", "math","search", "test", "Joke"];
+      if(( Person_Name = "user" && includes("math"))) {
+        BOT_DIR = [ "math" ];
+      }
+   }
 }
-
-
-
-if (Person_name === "user" && includes("i need", "I need", "what is", "is this")) {
-	BOT_MSGS = [
-		"I can help you if you include keywords on the subject such as math, search, test, or joke. That's how my basic JavaScript AI works. Not that you probably care, you just need a simple answer for right now. I am completely irrelevant."
-	];
-}
-
-var array1 = ["Math", "math", "search", "test", "Joke"];
-
-if(Person_Name = "user" && includes("math")) {
-    BOT_DIR = ["math"]
-};
-
 
 
 
