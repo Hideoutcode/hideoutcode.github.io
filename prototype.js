@@ -4,7 +4,7 @@ var msgerChat = get(".msger-chat");
 
 var Person_Name = "user";
 var BOT_DIR = ["math" ,"code" ,"back"];
-var BOT_MSGS = [];
+var BOT_MSGS = [
 
 if (Person_Name === "user" && includes("hi", "hello", "how are you", "hola",  "hallo")) {
   BOT_MSGS = [
@@ -31,6 +31,7 @@ if(Person_Name == "user" && includes("good", "fine", "a-okay")) {
       }
    }
 }
+];
 
 
 
