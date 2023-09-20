@@ -1,8 +1,9 @@
 var msgerForm = document.querySelector(".msger-inputarea");
 var msgerInput = document.querySelector(".msger-input");
 var msgerChat = document.querySelector(".msger-chat");
-
+var Person_Name_Element = document.querySelector(".msg-info-name")
 var Person_Name = "user";
+Person_Name_Element.innerHTML = "user";
 var BOT_DIR = ["math" ,"code" ,"back"];
 var BOT_MSGS = [
 
