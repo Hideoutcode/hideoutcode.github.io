@@ -1,6 +1,6 @@
-var msgerForm = get(".msger-inputarea");
-var msgerInput = get(".msger-input");
-var msgerChat = get(".msger-chat");
+var msgerForm = document.querySelector(".msger-inputarea");
+var msgerInput = document.querySelector(".msger-input");
+var msgerChat = document.querySelector(".msger-chat");
 
 var Person_Name = "user";
 var BOT_DIR = ["math" ,"code" ,"back"];
